@@ -1,6 +1,7 @@
 import java.sql.Array;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -8,7 +9,56 @@ public class Main {
     public static void main(String[] args) {
         //cria a instancia scanner que permite a inserção de dados pelo o usuario
         Scanner scan = new Scanner(System.in);
-        exMediaLista(scan);
+        exLoopFor(scan);
+    }
+
+    public static void exLoopFor(Scanner scan){
+        //i = interador
+        //no começo verifica e no final soma
+        //cria um vetor inteiro com 4 casas
+        int[] numeros = new int[4];
+
+        //imprime os cadastro de casa do vetor de acordo com o tamanho dele
+        for (int i = 0; i < numeros.length; i++) {
+            //define numeros aleatorios para cada casa
+            numeros[i] = new Random().nextInt(11);
+            System.out.println(numeros[i]);
+        }
+    }
+
+    public static void exLoopWhile(Scanner scan){
+        int contador = 0;
+
+        //cria um loop com uma regra
+        //while nao tem limite de repetição, enquanto for tem
+        //compara string VARIAVEL.equals()
+        while (contador < 10 ){
+            System.out.println(contador);
+            contador++;
+        }
+
+        //caso de montar um MENU
+        while(true){
+            System.out.println("1-oi\n2-tchau\n0-sair");
+            int op = scan.nextInt();
+            switch (op) {
+                case 1:
+                    System.out.println("oi");
+                    break;
+                case 2:
+                    System.out.println("tchau");
+                    break;
+                case 0:
+                    System.out.println("saindo...");
+                    break;
+                default:
+                    System.out.println("opçao invalida");
+                    break;
+            }
+            if (op == 0){
+                break;
+            }
+        }
     }
 
     public static void exMediaLista(Scanner scan) {
