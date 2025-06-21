@@ -41,8 +41,7 @@ public class Main {
             if(scan.nextInt() == 1){
                 System.out.println("DIGITE O NOVO VALOR: ");
                 double nvPreco = scan.nextDouble();
-                precos.remove(i);
-                precos.add(i,nvPreco);
+                precos.set(i,nvPreco);
                 System.out.println("------------------------------------\nALTERADO COM SUCESSO");
             }else System.out.println("VOLTANDO PARA O MENU...\n------------------------------------");
 
