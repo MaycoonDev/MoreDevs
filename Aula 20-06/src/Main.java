@@ -5,8 +5,8 @@ public class Main {
     static Scanner scan = new Scanner(System.in);
     static ArrayList<Double> precos = new ArrayList<>();
     public static void main(String[] args) {
-
-        while (true){
+        atv01();
+/*        while (true){
             System.out.println("------------------------------------\n0 - SAIR\n1 - CADASTRAR PREÇO\n2 - MOSTRA PREÇOS\n3 - EXCLUIR PREÇO\n4 - ALTERAR VALOR\n------------------------------------");
             String menu = scan.next();
 
@@ -29,7 +29,7 @@ public class Main {
                     System.out.println("ENTRADA INVALIDA\n------");
                     break;
             }
-        }
+        }*/
     }
 
     public static void updPreco(){
