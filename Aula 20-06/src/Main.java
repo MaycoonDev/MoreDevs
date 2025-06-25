@@ -13,16 +13,16 @@ public class Main {
             if (menu.equals("0")) break;
 
             switch (menu){
-                case "1": cadPreco();
+                case "1": //cadPreco();
                 break;
 
-                case "2": mostPreco();
+                case "2": //mostPreco();
                 break;
 
-                case "3": delPreco();
+                case "3": //delPreco();
                 break;
 
-                case "4": updPreco();
+                case "4": //updPreco();
                 break;
 
                 default:

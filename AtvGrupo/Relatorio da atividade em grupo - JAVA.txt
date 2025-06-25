@@ -1,0 +1,24 @@
+Grupo formado por:
+1 - João Vitor
+2 - Arthur Bona
+3 - Maycon Cecilio
+
+O que cada um fez:
+Todos os três contribuiram para o trabalho de forma conjunta,
+Idealizamos o codigo e discutimos sobre como seria a implementação de cada funcionalidade e "design" do codigo.
+
+Principais dificuldades:
+Consumir o nextLine - resolvido colocando um scandot nextLine
+Apresentação do sistema ao usuario - resolvemos inserindo um padrão de codigo e design
+Ter que ficar implementando frutas toda vez que testa - resolvemos populando a lista assim que o sistema roda
+
+Como foi o teste do programa:
+A cada implementação nova iamos testando todas as implementações anteriores,
+fizemos assim para garantir que cada implementação conseguiria se conversar e nao para ou nao funcionar.
+
+Como o programa funciona:
+O programa feito com a linguagem JAVA oferece ao usuario um sistema simples de cadastro de frutas e seus respectivos valores.
+A primeira vista aparece uma lista de suas funcionalidades como Cadastro onde pergunta a fruta que vai ser adicionada e depois seu preço,
+oferece tambem funcionalidades basicas como listagem das frutas cadastradas, mostragem da fruta mais cara, calculo da media dos valores e listagem dos preços que estao acima da media.
+E tambem há funcionalidades "PLUS" implementadas que fazem restrição ao usuario onde nao permite o cadastro de produtos repetitivos, ...
+permite remoçao de frutas somente pelo nome, atualizaçao dos preços pelo index e um que exibe o valor total de frutas cadastradas.
