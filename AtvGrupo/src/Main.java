@@ -93,7 +93,7 @@ public class Main {
                 }
                 break;
 
-            } catch (NumberFormatException e) {
+            } catch (InputMismatchException e) {
                 System.out.println("INVALID INDEX FORMAT, ENTER A NUMBER");
             }
         }
