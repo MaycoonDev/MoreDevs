@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main{
+public class Main {
     static ArrayList<String> fruits = new ArrayList<>();
     static ArrayList<Double> prices = new ArrayList<>();
     static Scanner scan = new Scanner(System.in);
@@ -48,7 +48,7 @@ public class Main{
                 case "6": removeBlock();
                     break;
                 case "7":
-                    System.out.println(String.format("%.2f", sumPrices()));
+                    System.out.println("$ " + String.format("%.2f", sumPrices()));
                     waitInput();
                     break;
                 case "8":
@@ -64,28 +64,36 @@ public class Main{
         int indexToBeUpdated;
         logFruits();
         while (true) {
-            System.out.println("CHOOSE THE FRUIT:");
-            indexToBeUpdated = scan.nextInt();
-            scan.nextLine();
+            System.out.println("CHOOSE THE FRUIT (INDEX):");
+            try {
+                indexToBeUpdated = scan.nextInt();
+                scan.nextLine();
 
-            if (prices.get(indexToBeUpdated) == null) {
-                System.out.println("FRUIT NOT FOUND, TRY ANOTHER");
-            } else {
+                if (indexToBeUpdated < 0 || indexToBeUpdated >= prices.size()) {
+                    System.out.println("INVALID INDEX, TRY AGAIN");
+                    continue;
+                }
 
                 while(true) {
-                    System.out.println("ENTER NEW PRICE");
-                    double newPrice = scan.nextDouble();
-                    scan.nextLine();
-
-                    if (newPrice <= 0){
-                        System.out.println("INVALID PRICE");
-                    } else {
-                        prices.set(indexToBeUpdated, newPrice);
-                        System.out.println("PRICE UPDATED SUCCESSFULLY!");
-                        break;
+                    System.out.println("ENTER NEW PRICE:");
+                    try {
+                        double newPrice = scan.nextDouble();
+                        scan.nextLine();
+                        if (newPrice <= 0){
+                            System.out.println("INVALID PRICE");
+                        } else {
+                            prices.set(indexToBeUpdated, newPrice);
+                            System.out.println("PRICE UPDATED SUCCESSFULLY!");
+                            break;
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("INVALID INPUT - PLEASE ENTER A NUMBER");
                     }
                 }
                 break;
+
+            } catch (NumberFormatException e) {
+                System.out.println("INVALID INDEX FORMAT, ENTER A NUMBER");
             }
         }
         waitInput();
@@ -179,6 +187,7 @@ public class Main{
         while (true) {
             System.out.println(line()+"FRUIT NAME: ");
             fruitName = scan.next();
+            scan.nextLine();
 
             if (isNameDuplicate(fruitName)) {
                 System.out.println("FRUIT ALREADY ADDED, TRY ANOTHER");
@@ -193,6 +202,7 @@ public class Main{
             System.out.println("---------------------------------\nFRUIT PRICE: $");
             try {
                 fruitPrice = scan.nextDouble();
+                scan.nextLine();
 
                 if (fruitPrice <= 0) {
                     System.out.println("INVALID PRICE - THE PRICE SHOULD BE POSITIVE");
@@ -212,9 +222,9 @@ public class Main{
 
     private static void addRandomFruitsAndPrices(List<String> fruits, List<Double> prices) {
         String[] possibleFruits = {
-                "🍎Apple🍎", "🍌Banana🍌", "🍇Grapes🍇", "🍊Orange🍊", "🍐Pear🍐",
-                "🥭Mango🥭", "🍑Peach🍑", "🍓Strawberry🍓", "🍍Pineapple🍍", "🍉Watermelon🍉",
-                "🍒Cherry🍒", "🥝Kiwi🥝", "🍋Lemon🍋", "🥥Coconut🥥", "🥑Avocado🥑"
+                "Apple", "Banana", "Grapes", "Orange", "Pear",
+                "Mango", "Peach", "Strawberry", "Pineapple", "Watermelon",
+                "Cherry", "Kiwi", "Lemon", "Coconut", "Avocado"
         };
 
         Random random = new Random();
@@ -238,8 +248,7 @@ public class Main{
     }
 
     public static String line(){
-        String line = "\n-------------------------------\n";
+        String line = "\n-------------------------------";
         return line;
     }
 }
-
