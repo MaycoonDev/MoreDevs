@@ -53,6 +53,7 @@ public class Main {
                     break;
                 case "8":
                     editPrice();
+                    break;
                 default:
                     System.out.println("---------INVALID ENTRY----------");
                     break;
@@ -86,7 +87,7 @@ public class Main {
                             System.out.println("PRICE UPDATED SUCCESSFULLY!");
                             break;
                         }
-                    } catch (NumberFormatException e) {
+                    } catch (InputMismatchException e) {
                         System.out.println("INVALID INPUT - PLEASE ENTER A NUMBER");
                     }
                 }
@@ -210,7 +211,7 @@ public class Main {
                     break;
                 }
 
-            } catch (NumberFormatException e) {
+            } catch (InputMismatchException e){
                 System.out.println("INVALID PRICE FORMAT, ENTER A NUMBER");
             }
         }
