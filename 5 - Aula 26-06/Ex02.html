@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - FLEX</title>
+    <style>
+        .principal{
+            background-color: rgb(186, 206, 186);
+            height: 400px;
+            display: flex;
+            
+            /* DEFINIR A EXIBIÇÃO DO CONTEUDO NA HORIZONTAL OU VERTICAL
+            flex-direction: row;*/
+
+            flex-wrap: wrap;
+
+            /* ALINHAMETO NA HORIZONTAL */
+            justify-content: center;
+
+            /* ALINHAMENTO NA VERTICAL */
+            align-items: center;
+        }
+        .bloco{
+            background-color: blue;
+            width: 20px;
+            height: 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="principal">
+        <div class="bloco">1</div>
+        <div class="bloco">2</div>
+        <div class="bloco">3</div>
+        <div class="bloco">4</div>
+        <div class="bloco">5</div>
+        <div class="bloco">6</div>
+        <div class="bloco">7</div>
+        <div class="bloco">8</div>
+        <div class="bloco">9</div>
+        <div class="bloco">10</div>
+    </div>
+</body>
+</html>

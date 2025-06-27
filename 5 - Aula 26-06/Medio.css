@@ -1,0 +1,43 @@
+/* ATUALIZAÇÃO GLOBAL */
+*{
+    margin: 0;
+    padding: 0;
+    font: 14px sans-serif;
+}
+
+/* FORMATAÇÃO POR GRUPO */
+header{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+h1{
+    display: flex;
+    color: white;
+    font-size: 30px;
+    padding: 20px;
+    padding-bottom: 0;
+    justify-content: center;
+}
+ul{
+    color: white;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+li{
+    border-bottom: 5px solid black;
+    padding-right: 20px;
+    padding-top: 25px;
+    padding-left: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+li:hover{
+    border-bottom-color: white;
+    cursor: pointer;
+}
+form{
+    display: none;
+}
