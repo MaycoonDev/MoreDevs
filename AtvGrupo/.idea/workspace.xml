@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5e333a0-de5e-47d4-921e-1dc099b353f3" name="Changes" comment="" />
+    <list default="true" id="f5e333a0-de5e-47d4-921e-1dc099b353f3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../6 - Aula 27-06/src/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../6 - Aula 27-06/src/BolasGolf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../6 - Aula 27-06/src/ContaBancaria.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../6 - Aula 27-06/src/Pessoa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../6 - Aula 27-06/src/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../6 - Aula 27-06/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../6 - Aula 27-06/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,10 +37,25 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Moc/Documents/GitHub/MoreDevs/AtvGrupo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/Moc/Documents/GitHub/MoreDevs/AtvGrupo/src/Main.java",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f5e333a0-de5e-47d4-921e-1dc099b353f3" name="Changes" comment="" />
@@ -41,7 +63,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1750884453889</updated>
+      <workItem from="1751065662174" duration="607000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
