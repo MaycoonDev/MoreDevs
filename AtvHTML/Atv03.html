@@ -6,7 +6,7 @@
   <title>03 - Jogo de Adivinhação</title>
   <link rel="stylesheet" href="Estilo.css" />
   <style>
-    /* Ajustes pontuais para input e botões */
+    
     input[type="number"] {
       width: 100%;
       margin: 12px 0;
@@ -15,8 +15,6 @@
     button {
       margin-top: 8px;
     }
-
-    /* A mensagem já herda da classe resultado, não precisa de mais nada aqui */
 
     h1 {
       margin-bottom: 20px;
@@ -61,7 +59,7 @@
 
       if (palpite < 1 || palpite > 100 || isNaN(palpite)) {
         mensagem.textContent = "Por favor, digite um número entre 1 e 100.";
-        mensagem.style.color = "#e63946"; // vermelho erro
+        mensagem.style.color = "#e63946";
         return;
       }
 
@@ -69,20 +67,20 @@
 
       if (palpite === numeroSecreto) {
         mensagem.innerHTML = `🎉 Parabéns! Você acertou o número <strong>${numeroSecreto}</strong> com ${tentativas} tentativa(s).`;
-        mensagem.style.color = "#2a9d8f"; // verde azulado
+        mensagem.style.color = "#2a9d8f";
         encerrarJogo();
       } else if (diferenca <= 5) {
         mensagem.textContent = "Quase!";
-        mensagem.style.color = "#e76f51"; // laranja
+        mensagem.style.color = "#e76f51";
       } else if (diferenca <= 10) {
         mensagem.textContent = "Perto!";
-        mensagem.style.color = "#e76f51"; // laranja
+        mensagem.style.color = "#e76f51";
       } else if (diferenca <= 20) {
         mensagem.textContent = "Longe!";
-        mensagem.style.color = "#e76f51"; // laranja
+        mensagem.style.color = "#e76f51"; 
       } else {
         mensagem.textContent = "Muito longe!";
-        mensagem.style.color = "#e76f51"; // laranja
+        mensagem.style.color = "#e76f51"; 
       }
 
       document.getElementById("palpite").value = "";
@@ -92,7 +90,7 @@
     function desistir() {
       const mensagem = document.getElementById("mensagem");
       mensagem.innerHTML = `😞 Você desistiu! O número secreto era <strong>${numeroSecreto}</strong>.`;
-      mensagem.style.color = "#e63946"; // vermelho
+      mensagem.style.color = "#e63946"; 
       encerrarJogo();
     }
 

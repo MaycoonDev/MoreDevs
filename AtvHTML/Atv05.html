@@ -24,11 +24,11 @@
 
       if (isNaN(num) || num < 0 || !Number.isInteger(num)) {
         resultadoDiv.textContent = "Por favor, digite um número inteiro não negativo.";
-        resultadoDiv.style.color = "#e63946"; // vermelho para erro
+        resultadoDiv.style.color = "#e63946";
         return;
       }
 
-      resultadoDiv.style.color = "#333"; // cor padrão
+      resultadoDiv.style.color = "#333";
 
       if (num === 0 || num === 1) {
         resultadoDiv.textContent = `🔢 O fatorial de ${num} é 1.`;

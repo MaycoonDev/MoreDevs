@@ -26,41 +26,41 @@
 
       if (isNaN(altura) || altura <= 0) {
         resultadoDiv.textContent = "Por favor, informe uma altura válida em metros.";
-        resultadoDiv.style.color = "#e63946"; // vermelho erro geral
+        resultadoDiv.style.color = "#e63946";
         return;
       }
       if (isNaN(peso) || peso <= 0) {
         resultadoDiv.textContent = "Por favor, informe um peso válido em kg.";
-        resultadoDiv.style.color = "#e63946"; // vermelho erro geral
+        resultadoDiv.style.color = "#e63946";
         return;
       }
 
-      resultadoDiv.style.color = "#333"; // cor padrão para texto fixo
+      resultadoDiv.style.color = "#333";
 
       const imc = peso / (altura * altura);
       const imcFixed = imc.toFixed(1);
 
       let classificacao = '';
-      let corResultado = '#333'; // fallback cor
+      let corResultado = '#333';
 
       if (imc < 18.5) {
         classificacao = "Abaixo do peso";
-        corResultado = '#f1c40f'; // amarelo
+        corResultado = '#f1c40f';
       } else if (imc < 25) {
         classificacao = "Peso normal";
-        corResultado = '#2ecc71'; // verde
+        corResultado = '#2ecc71';
       } else if (imc < 30) {
         classificacao = "Sobrepeso";
-        corResultado = '#f1c40f'; // amarelo
+        corResultado = '#f1c40f';
       } else if (imc < 35) {
         classificacao = "Obesidade grau 1";
-        corResultado = '#e63946'; // vermelho
+        corResultado = '#e63946';
       } else if (imc < 40) {
         classificacao = "Obesidade grau 2";
-        corResultado = '#e63946'; // vermelho
+        corResultado = '#e63946';
       } else {
         classificacao = "Obesidade grau 3";
-        corResultado = '#e63946'; // vermelho
+        corResultado = '#e63946';
       }
 
       const pesoIdealMin = 18.5 * altura * altura;

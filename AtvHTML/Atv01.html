@@ -26,7 +26,7 @@
 
       if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
         resultado.textContent = "Por favor, preencha todas as notas corretamente.";
-        resultado.style.color = "#e63946"; // vermelho para erro
+        resultado.style.color = "#e63946";
         return;
       }
 
@@ -35,13 +35,13 @@
 
       if (media >= 7) {
         situacao = "Aprovado";
-        resultado.style.color = "#2a9d8f"; // verde azulado
+        resultado.style.color = "#2a9d8f";
       } else if (media >= 5) {
         situacao = "Recuperação";
-        resultado.style.color = "#e76f51"; // laranja
+        resultado.style.color = "#e76f51";
       } else {
         situacao = "Reprovado";
-        resultado.style.color = "#e63946"; // vermelho
+        resultado.style.color = "#e63946";
       }
 
       resultado.innerHTML = `Média: ${media.toFixed(2)}<br><strong>Situação: ${situacao}</strong>`;

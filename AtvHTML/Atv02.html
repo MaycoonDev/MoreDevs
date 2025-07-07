@@ -35,7 +35,7 @@
 
       if (isNaN(valorReal) || valorReal <= 0) {
         resultado.textContent = "Por favor, insira um valor válido em Reais.";
-        resultado.style.color = "#e63946"; // vermelho erro
+        resultado.style.color = "#e63946";
         return;
       }
 
@@ -51,7 +51,7 @@
         case "dolar":
           convertido = valorReal / taxas.dolar;
           resultado.textContent = `US$ ${convertido.toFixed(2)}`;
-          resultado.style.color = "#2a9d8f"; // cor padrão positiva
+          resultado.style.color = "#2a9d8f";
           break;
         case "euro":
           convertido = valorReal / taxas.euro;
@@ -70,7 +70,7 @@
           break;
         default:
           resultado.textContent = "Tipo de conversão inválido.";
-          resultado.style.color = "#e63946"; // vermelho erro
+          resultado.style.color = "#e63946";
       }
     }
   </script>

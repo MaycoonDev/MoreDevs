@@ -1,4 +1,4 @@
-/* Reset básico e body estilizado */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,7 +16,6 @@ body {
   padding: 20px;
 }
 
-/* Container padrão para centralizar conteúdo */
 .container {
   background: #fff;
   border-radius: 12px;
@@ -27,7 +26,6 @@ body {
   text-align: center;
 }
 
-/* Títulos */
 h1, h2 {
   margin-bottom: 20px;
   color: #3a3a3a;
@@ -35,7 +33,6 @@ h1, h2 {
   line-height: 1.2;
 }
 
-/* Inputs e selects */
 input[type="number"],
 select {
   width: 100%;
@@ -55,7 +52,6 @@ select:focus {
   box-shadow: 0 0 8px rgba(58, 134, 255, 0.3);
 }
 
-/* Botões */
 button {
   width: 100%;
   padding: 12px 25px;
@@ -80,23 +76,20 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Área de resultado, mensagens e outputs */
 .resultado, #resultado, #mensagem {
   margin-top: 25px;
   font-size: 1.2rem;
   font-weight: 600;
   min-height: 40px;
   color: #333;
-  white-space: pre-line; /* mantém quebras de linha no texto */
+  white-space: pre-line;
   word-wrap: break-word;
 }
 
-/* Pequenas adaptações para textos fortes */
 strong {
   color: #2a9d8f;
 }
 
-/* Responsividade simples */
 @media (max-width: 400px) {
   .container {
     padding: 20px;
