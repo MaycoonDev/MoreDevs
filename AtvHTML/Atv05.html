@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>05 - Calculadora de Fatorial</title>
+  <link rel="stylesheet" href="Estilo.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora de Fatorial</h1>
+
+    <input type="number" id="numero" placeholder="Digite um número" min="0" />
+
+    <button onclick="calcularFatorial()">Calcular Fatorial</button>
+
+    <div id="resultado" class="resultado"></div>
+  </div>
+
+  <script>
+    function calcularFatorial() {
+      const num = Number(document.getElementById("numero").value);
+      const resultadoDiv = document.getElementById("resultado");
+
+      if (isNaN(num) || num < 0 || !Number.isInteger(num)) {
+        resultadoDiv.textContent = "Por favor, digite um número inteiro não negativo.";
+        resultadoDiv.style.color = "#e63946"; // vermelho para erro
+        return;
+      }
+
+      resultadoDiv.style.color = "#333"; // cor padrão
+
+      if (num === 0 || num === 1) {
+        resultadoDiv.textContent = `🔢 O fatorial de ${num} é 1.`;
+        return;
+      }
+
+      let fatorial = 1;
+
+      for (let i = 2; i <= num; i++) {
+        fatorial *= i;
+      }
+
+      resultadoDiv.textContent = `🔢 O fatorial de ${num} é ${fatorial}.`;
+    }
+  </script>
+</body>
+</html>

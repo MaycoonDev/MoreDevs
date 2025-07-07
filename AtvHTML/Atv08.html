@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>08 - Quiz com 5 Perguntas Aleatórias</title>
+<link rel="stylesheet" href="Estilo.css" />
+<style>
+  .alternativa {
+    display: block;
+    margin: 10px 0;
+    padding: 8px 15px;
+    border: 2px solid #3a86ff;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .alternativa:hover {
+    background-color: #3a86ff;
+    color: white;
+  }
+  button#btnProxima {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Quiz: Responda as perguntas</h1>
+    <div id="quiz-container">
+      <p id="pergunta"></p>
+      <div id="alternativas"></div>
+      <button id="btnProxima" disabled>Próxima</button>
+    </div>
+    <div id="resultado" class="resultado"></div>
+  </div>
+
+  <script>
+    const perguntas = [
+      {
+        pergunta: "Qual é a capital do Brasil?",
+        alternativas: ["São Paulo", "Brasília", "Rio de Janeiro", "Salvador"],
+        correta: 1
+      },
+      {
+        pergunta: "Qual o maior planeta do Sistema Solar?",
+        alternativas: ["Terra", "Saturno", "Júpiter", "Marte"],
+        correta: 2
+      },
+      {
+        pergunta: "Quem escreveu 'Dom Casmurro'?",
+        alternativas: ["Machado de Assis", "José de Alencar", "Carlos Drummond", "Clarice Lispector"],
+        correta: 0
+      },
+      {
+        pergunta: "Qual é a fórmula da água?",
+        alternativas: ["H2O", "CO2", "NaCl", "O2"],
+        correta: 0
+      },
+      {
+        pergunta: "Qual país é conhecido como 'Terra do Sol Nascente'?",
+        alternativas: ["China", "Coreia do Sul", "Japão", "Tailândia"],
+        correta: 2
+      },
+      {
+        pergunta: "Em que ano o Brasil foi descoberto?",
+        alternativas: ["1500", "1492", "1808", "1822"],
+        correta: 0
+      },
+      {
+        pergunta: "Quem pintou a Mona Lisa?",
+        alternativas: ["Michelangelo", "Leonardo da Vinci", "Rafael", "Van Gogh"],
+        correta: 1
+      },
+      {
+        pergunta: "Qual o elemento químico do símbolo 'Fe'?",
+        alternativas: ["Ferro", "Flúor", "Fósforo", "Ferrovia"],
+        correta: 0
+      },
+      {
+        pergunta: "Qual desses animais é um mamífero?",
+        alternativas: ["Crocodilo", "Golfinho", "Tubarão", "Águia"],
+        correta: 1
+      },
+      {
+        pergunta: "Qual a língua mais falada no mundo?",
+        alternativas: ["Inglês", "Chinês Mandarim", "Espanhol", "Hindi"],
+        correta: 1
+      }
+    ];
+
+    let perguntasSelecionadas = [];
+    let perguntaAtual = 0;
+    let acertos = 0;
+
+    const perguntaEl = document.getElementById('pergunta');
+    const alternativasEl = document.getElementById('alternativas');
+    const btnProxima = document.getElementById('btnProxima');
+    const resultadoEl = document.getElementById('resultado');
+
+    function embaralhar(array) {
+      for(let i = array.length -1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function selecionarPerguntas() {
+      const indices = Array.from(Array(perguntas.length).keys());
+      embaralhar(indices);
+      perguntasSelecionadas = indices.slice(0,5).map(i => perguntas[i]);
+    }
+
+    function mostrarPergunta() {
+      btnProxima.disabled = true;
+      resultadoEl.textContent = '';
+      const p = perguntasSelecionadas[perguntaAtual];
+      perguntaEl.textContent = `Pergunta ${perguntaAtual + 1}: ${p.pergunta}`;
+
+      alternativasEl.innerHTML = '';
+
+      p.alternativas.forEach((alt, i) => {
+        const btn = document.createElement('button');
+        btn.textContent = alt;
+        btn.className = 'alternativa';
+        btn.onclick = () => selecionarAlternativa(i);
+        alternativasEl.appendChild(btn);
+      });
+    }
+
+    function selecionarAlternativa(indice) {
+      const p = perguntasSelecionadas[perguntaAtual];
+      const botoes = alternativasEl.querySelectorAll('button');
+      botoes.forEach(btn => btn.disabled = true);
+
+      if (indice === p.correta) {
+        acertos++;
+        botoes[indice].style.backgroundColor = '#2ecc71'; // verde
+        botoes[indice].style.color = '#fff';
+      } else {
+        botoes[indice].style.backgroundColor = '#e63946'; // vermelho
+        botoes[indice].style.color = '#fff';
+        botoes[p.correta].style.backgroundColor = '#2ecc71'; // verde no correto
+        botoes[p.correta].style.color = '#fff';
+      }
+      btnProxima.disabled = false;
+    }
+
+    btnProxima.onclick = () => {
+      perguntaAtual++;
+      if (perguntaAtual < perguntasSelecionadas.length) {
+        mostrarPergunta();
+      } else {
+        mostrarResultado();
+      }
+    };
+
+    function mostrarResultado() {
+      perguntaEl.textContent = '';
+      alternativasEl.innerHTML = '';
+      btnProxima.style.display = 'none';
+      resultadoEl.innerHTML = `Você acertou <strong>${acertos}</strong> de <strong>${perguntasSelecionadas.length}</strong> perguntas! 🎉`;
+    }
+
+    // Inicia o quiz
+    selecionarPerguntas();
+    mostrarPergunta();
+  </script>
+</body>
+</html>

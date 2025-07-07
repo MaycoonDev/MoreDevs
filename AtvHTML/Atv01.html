@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>01 - Média</title>
+  <link rel="stylesheet" href="Estilo.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Calculadora de Média do Aluno</h2>
+    <input type="number" id="nota1" placeholder="Nota 1" step="0.1" min="0" max="10" />
+    <input type="number" id="nota2" placeholder="Nota 2" step="0.1" min="0" max="10" />
+    <input type="number" id="nota3" placeholder="Nota 3" step="0.1" min="0" max="10" />
+    <button onclick="calcularMedia()">Calcular Média</button>
+
+    <div class="resultado" id="resultado"></div>
+  </div>
+
+  <script>
+    function calcularMedia() {
+      const nota1 = parseFloat(document.getElementById("nota1").value);
+      const nota2 = parseFloat(document.getElementById("nota2").value);
+      const nota3 = parseFloat(document.getElementById("nota3").value);
+      const resultado = document.getElementById("resultado");
+
+      if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
+        resultado.textContent = "Por favor, preencha todas as notas corretamente.";
+        resultado.style.color = "#e63946"; // vermelho para erro
+        return;
+      }
+
+      const media = (nota1 + nota2 + nota3) / 3;
+      let situacao = "";
+
+      if (media >= 7) {
+        situacao = "Aprovado";
+        resultado.style.color = "#2a9d8f"; // verde azulado
+      } else if (media >= 5) {
+        situacao = "Recuperação";
+        resultado.style.color = "#e76f51"; // laranja
+      } else {
+        situacao = "Reprovado";
+        resultado.style.color = "#e63946"; // vermelho
+      }
+
+      resultado.innerHTML = `Média: ${media.toFixed(2)}<br><strong>Situação: ${situacao}</strong>`;
+    }
+  </script>
+</body>
+</html>

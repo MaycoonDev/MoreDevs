@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>02 - Conversor de Moedas</title>
+  <link rel="stylesheet" href="Estilo.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Conversor de Moedas</h2>
+    <input
+      type="number"
+      id="valorReal"
+      placeholder="Valor em Reais (BRL)"
+      step="0.01"
+      min="0"
+    />
+    <select id="conversao">
+      <option value="dolar">Real para Dólar (USD)</option>
+      <option value="euro">Real para Euro (EUR)</option>
+      <option value="libra">Real para Libra (GBP)</option>
+      <option value="bitcoin">Real para Bitcoin (BTC)</option>
+    </select>
+    <button onclick="converter()">Converter</button>
+
+    <div class="resultado" id="resultado"></div>
+  </div>
+
+  <script>
+    function converter() {
+      const valorReal = parseFloat(document.getElementById("valorReal").value);
+      const tipo = document.getElementById("conversao").value;
+      const resultado = document.getElementById("resultado");
+
+      if (isNaN(valorReal) || valorReal <= 0) {
+        resultado.textContent = "Por favor, insira um valor válido em Reais.";
+        resultado.style.color = "#e63946"; // vermelho erro
+        return;
+      }
+
+      const taxas = {
+        dolar: 5.42,
+        euro: 6.38,
+        libra: 7.39,
+        bitcoin: 108080,
+      };
+
+      let convertido;
+      switch (tipo) {
+        case "dolar":
+          convertido = valorReal / taxas.dolar;
+          resultado.textContent = `US$ ${convertido.toFixed(2)}`;
+          resultado.style.color = "#2a9d8f"; // cor padrão positiva
+          break;
+        case "euro":
+          convertido = valorReal / taxas.euro;
+          resultado.textContent = `€ ${convertido.toFixed(2)}`;
+          resultado.style.color = "#2a9d8f";
+          break;
+        case "libra":
+          convertido = valorReal / taxas.libra;
+          resultado.textContent = `£ ${convertido.toFixed(2)}`;
+          resultado.style.color = "#2a9d8f";
+          break;
+        case "bitcoin":
+          convertido = valorReal / taxas.bitcoin;
+          resultado.textContent = `₿ ${convertido.toFixed(8)}`;
+          resultado.style.color = "#2a9d8f";
+          break;
+        default:
+          resultado.textContent = "Tipo de conversão inválido.";
+          resultado.style.color = "#e63946"; // vermelho erro
+      }
+    }
+  </script>
+</body>
+</html>
