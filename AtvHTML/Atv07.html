@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>07 - Verificador de Ano Bissexto</title>
+  <link rel="stylesheet" href="Estilo.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Verificar Ano Bissexto</h1>
+    <label for="ano">Informe o ano:</label>
+    <input type="number" id="ano" placeholder="Ex: 2024" />
+    <button onclick="verificarBissexto()">Verificar</button>
+
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    function verificarBissexto() {
+      const ano = parseInt(document.getElementById('ano').value);
+      const resultado = document.getElementById('resultado');
+
+      resultado.className = '';
+
+      if (isNaN(ano)) {
+        resultado.textContent = 'Por favor, insira um ano válido.';
+        resultado.classList.add('erro');
+        return;
+      }
+
+      if ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0)) {
+        resultado.textContent = `O ano ${ano} é bissexto.`;
+        resultado.classList.add('bissexto');
+      } else {
+        resultado.textContent = `O ano ${ano} NÃO é bissexto.`;
+        resultado.classList.add('nao-bissexto');
+      }
+    }
+  </script>
+</body>
+</html>

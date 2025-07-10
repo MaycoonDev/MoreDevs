@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>06 - Calculadora de IMC</title>
+  <link rel="stylesheet" href="Estilo.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora de IMC</h1>
+
+    <input type="number" id="altura" placeholder="Altura (m)" step="0.01" min="0.5" max="2.5" />
+    <input type="number" id="peso" placeholder="Peso (kg)" step="0.1" min="10" max="500" />
+
+    <button onclick="calcularIMC()">Calcular IMC</button>
+
+    <div id="resultado" class="resultado"></div>
+  </div>
+
+  <script>
+    function calcularIMC() {
+      const altura = parseFloat(document.getElementById('altura').value);
+      const peso = parseFloat(document.getElementById('peso').value);
+      const resultadoDiv = document.getElementById('resultado');
+
+      if (isNaN(altura) || altura <= 0) {
+        resultadoDiv.textContent = "Por favor, informe uma altura válida em metros.";
+        resultadoDiv.style.color = "#e63946";
+        return;
+      }
+      if (isNaN(peso) || peso <= 0) {
+        resultadoDiv.textContent = "Por favor, informe um peso válido em kg.";
+        resultadoDiv.style.color = "#e63946";
+        return;
+      }
+
+      resultadoDiv.style.color = "#333";
+
+      const imc = peso / (altura * altura);
+      const imcFixed = imc.toFixed(1);
+
+      let classificacao = '';
+      let corResultado = '#333';
+
+      if (imc < 18.5) {
+        classificacao = "Abaixo do peso";
+        corResultado = '#f1c40f';
+      } else if (imc < 25) {
+        classificacao = "Peso normal";
+        corResultado = '#2ecc71';
+      } else if (imc < 30) {
+        classificacao = "Sobrepeso";
+        corResultado = '#f1c40f';
+      } else if (imc < 35) {
+        classificacao = "Obesidade grau 1";
+        corResultado = '#e63946';
+      } else if (imc < 40) {
+        classificacao = "Obesidade grau 2";
+        corResultado = '#e63946';
+      } else {
+        classificacao = "Obesidade grau 3";
+        corResultado = '#e63946';
+      }
+
+      const pesoIdealMin = 18.5 * altura * altura;
+      const pesoIdealMax = 24.9 * altura * altura;
+
+      resultadoDiv.innerHTML =
+        `Seu IMC é <strong style="color: ${corResultado}">${imcFixed}</strong>.<br>` +
+        `Classificação: <strong style="color: ${corResultado}">${classificacao}</strong>.<br><br>` +
+        `Peso ideal para sua altura: entre <strong style="color: ${corResultado}">${pesoIdealMin.toFixed(1)} kg</strong> e <strong style="color: ${corResultado}">${pesoIdealMax.toFixed(1)} kg</strong>.`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04 - CONDICIONAL</title>
+
+    <script>
+
+        /*
+            CONVERTER DADOS
+            parseInt() -> de texto para inteiro
+            parseFloat() -> de texto para real
+        */
+
+        //Obter idade
+        let idade = parseInt(prompt("Informe sua Idade: "));
+
+        //condicional
+        if( idade >= 18){
+            alert("Maior de idade");
+        }else{
+            alert("Menor de idade");
+        }
+
+        //operador ternario
+        alert(idade >= 18 ? "maior de idade":"Menor de idade");
+
+        //Condicional - if/else if/else
+        if(idade <= 11){
+            alert("Criança");
+        }else if (idade <= 17){
+            alert("Adolescente");
+        }else{
+            alert("Adulto");
+        }
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

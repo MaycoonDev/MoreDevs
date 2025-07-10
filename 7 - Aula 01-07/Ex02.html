@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - VARIAVES</title>
+    <script>
+
+        //variaveis --> var ou let
+        let nomelet = "Maycon";
+        var idade = 21;
+        var nome = "Maycon"
+
+        //constante
+        const senha = "123";
+
+        // Var x Let (let altera temporarimente o valor)
+        document.write("Let Antes do if: "+ nomelet+"<hr></hr>");
+        if (nomelet == "Maycon"){
+            let nomelet = "Piethra<hr></hr>";
+            document.write("Let Durante o if: "+nomelet);
+        }
+        document.write("Let Depois do if: "+nomelet+"<hr></hr>");
+
+        document.write("Var Antes do if: "+ nome+"<hr></hr>");
+        if (nome == "Maycon"){
+            var nome = "Piethra";
+            document.write("Var Durante o if: "+ nome+"<hr></hr>");
+        }
+        document.write("Var Depois do if: "+nome+"<hr></hr>");
+        var nome = "Maycon";
+        
+        // concatenação
+        document.write("Boa noite "+ nome + " voce tem "+ idade+" anos<hr></hr>");
+        document.write(`Boa noite ${nome} voce tem ${idade} anos<hr></hr>`);
+        document.write(senha)
+
+        
+
+    </script>
+</head>
+<body>
+</body>
+</html>
