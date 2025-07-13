@@ -6,12 +6,13 @@ body {
     max-width: 800px;
     width: 100%;
 }
-h1 {
+h1, h2{
     text-align: center;
 }
 .botoes {
   margin-top: 1rem;
   text-align: center;
+  padding-bottom: 10px;
 }
 #btnAtualizar, #btnDeletar, #btnCancelar{
     display: none;

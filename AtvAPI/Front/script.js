@@ -1,4 +1,5 @@
 let pessoas = [];
+let funcao = 0;
 
 const verificarCampos = (nome,cep,estado,cidade,bairro,logradouro) => {
     if (
@@ -11,6 +12,22 @@ const verificarCampos = (nome,cep,estado,cidade,bairro,logradouro) => {
     ) {
         return 1
     }
+}
+
+const controlarBotoes = (funcao) => {
+    if (funcao == 1){
+        btnCadastrar.style.display = "none";
+        btnAtualizar.style.display = "inline-block";
+        btnDeletar.style.display = "inline-block";
+        btnCancelar.style.display = "inline-block";
+    }
+    if (funcao == 2){
+        btnCadastrar.style.display = "inline-block";
+        btnAtualizar.style.display = "none";
+        btnDeletar.style.display = "none";
+        btnCancelar.style.display = "none";
+    }
+
 }
 
 const limparCampos = () => {
@@ -78,7 +95,7 @@ const buscarCep = () => {
     
     let apiCep = (`https://viacep.com.br/ws/${cep.value}/json/`);
 
-    if(cep.value.length != 8){
+    if(cep.value.length !== 8){
         alert("cep");
         return;
     }
@@ -103,6 +120,15 @@ const buscarCep = () => {
       logradouro.value = data.logradouro;
 })
 }
+
+document.getElementById("inputCep").addEventListener("input", function () {
+    let cep = this.value.replace(/\D/g, ""); // remove tudo que não for número
+
+    if (cep.length === 8) {
+        buscarCep(cep);
+    }
+});
+
 
 const cadastrar = () => {
 
@@ -160,21 +186,20 @@ const selecionar = (i) => {
     let btnAtualizar = document.getElementById("btnAtualizar");
     let btnDeletar = document.getElementById("btnDeletar");
     let btnCancelar = document.getElementById("btnCancelar");
+    funcao = 1;
 
     let obj = pessoas[i];
 
-    id.value = obj.id
-    nome.value = obj.nome
-    cep.value = obj.cep
-    estado.value = obj.estado
-    cidade.value = obj.cidade
-    bairro.value = obj.bairro
-    logradouro.value = obj.logradouro
+    id.value = obj.id;
+    nome.value = obj.nome;
+    cep.value = obj.cep;
+    estado.value = obj.estado;
+    cidade.value = obj.cidade;
+    bairro.value = obj.bairro;
+    logradouro.value = obj.logradouro;
 
-    btnCadastrar.style.display = "none";
-    btnAtualizar.style.display = "inline-block";
-    btnDeletar.style.display = "inline-block";
-    btnCancelar.style.display = "inline-block";
+    controlarBotoes(funcao);
+    
 }
 
 const cancelar = () => {
@@ -190,13 +215,11 @@ const cancelar = () => {
     let btnAtualizar = document.getElementById("btnAtualizar");
     let btnDeletar = document.getElementById("btnDeletar");
     let btnCancelar = document.getElementById("btnCancelar");
+    let funcao = 2;
 
     limparCampos();
 
-    btnCadastrar.style.display = "inline-block";
-    btnAtualizar.style.display = "none";
-    btnDeletar.style.display = "none";
-    btnCancelar.style.display = "none";
+    controlarBotoes(funcao);
 }
 
 const atualizar = () => {
@@ -208,6 +231,7 @@ const atualizar = () => {
     let cidade = document.getElementById("inputCidade");
     let bairro = document.getElementById("inputBairro");
     let logradouro = document.getElementById("inputLogradouro");
+    funcao = 2;
 
     if (verificarCampos(nome,cep,estado,cidade,bairro,logradouro) == 1){
         alert("Confira se todos os campos estão preenchidos.");
@@ -236,6 +260,7 @@ const atualizar = () => {
 
         renderizarTabela();
         limparCampos();
+        controlarBotoes(funcao);
 
         nome.focus
     })
@@ -244,6 +269,7 @@ const atualizar = () => {
 const deletar = () => {
 
     let id = document.getElementById("inputId");
+    funcao = 2;
 
     fetch(`${apiPessoas}/${id.value}`,{
         method:"DELETE",
