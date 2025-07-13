@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - EXEMPLO</title>
+    <script>
+        let pessoa = {
+            nome:"maycon",
+            idade:20,
+            cidade:"Blumenau"
+        }
+        let pessoaTxt= JSON.stringify(pessoa);
+
+        let pessoaJSON = JSON.parse(pessoaTxt);
+
+        console.log(pessoaTxt)
+        let nome = pessoaJSON.nome
+         window.onload = function() {
+            document.body.innerHTML = "<h1>Nome: " + nome + "</h1>";
+         }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

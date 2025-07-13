@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+.container {
+    max-width: 800px;
+    width: 100%;
+}
+h1 {
+    text-align: center;
+}
+.botoes {
+  margin-top: 1rem;
+  text-align: center;
+}
+#btnAtualizar, #btnDeletar, #btnCancelar{
+    display: none;
+}
+

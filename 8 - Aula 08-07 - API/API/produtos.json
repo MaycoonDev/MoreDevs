@@ -1,0 +1,28 @@
+{
+  "produtos": [
+    {
+      "Nome": "Tv",
+      "Marca": "Philco",
+      "Valor": 4300,
+      "id": "e7a9"
+    },
+    {
+      "id": "9b3e",
+      "Nome": "Notebook Inspiron 4563",
+      "Marca": "Dell",
+      "Valor": 6700
+    },
+    {
+      "id": "4895",
+      "Nome": "Tv",
+      "Marca": "Samsug",
+      "Valor": 4500
+    },
+    {
+      "id": "c971",
+      "Nome": "Ventilador",
+      "Marca": "Mondial",
+      "Valor": 55
+    }
+  ]
+}
