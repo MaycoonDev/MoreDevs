@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - PromiseAllSettled</title>
+</head>
+<body>
+    <script>
+        const promise1 = new Promise((resolve, reject) => {
+            const acao = true;
+
+            setTimeout(() => {
+                if(acao){
+                    resolve("passou na primeira");
+                }else{
+                    reject("nao passou da primeira");
+                }
+            }, 2000);
+        })
+
+        const promise2 = new Promise((resolve, reject) => {
+            const acao = true;
+
+            setTimeout(() => {
+                if(acao){
+                    resolve("passou na segunda");
+                }else{
+                    reject("nao passou da segunda");
+                }
+            }, 4000);
+        })
+        const promise3 = new Promise((resolve, reject) => {
+            const acao = false;
+
+            setTimeout(() => {
+                if(acao){
+                    resolve("passou na terceira");
+                }else{
+                    reject("nao passou da terceira");
+                }
+            }, 6000);
+        })
+
+        Promise.allSettled([promise1,promise2,promise3])
+        .then((res) => {
+            for(let i = 0; i < res.length; i++){
+                if(res[i].status == "fulfilled"){
+                    console.log(`A promise ${i+1} foi executada`);
+                }else{
+                    console.log(`A promise ${i+1} não foi executada`);
+                }   
+            }
+
+            res.forEach((obj, i)=>{
+                if(obj.status == "fulfilled"){
+                    console.log(`A promise ${i+1} foi executada`);
+                }else{
+                    console.log(`A promise ${i+1} não foi executada`);
+                } 
+
+            })
+
+            res.map((obj,i)=> {
+                console.log(obj.status == "fulfilled"?`A promise ${i+1} foi executada`:`A promise ${i+1} não foi executada`)
+            })
+        })
+
+        
+    </script>
+</body>
+</html>

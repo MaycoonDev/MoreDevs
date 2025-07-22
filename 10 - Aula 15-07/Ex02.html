@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - PromiseAll</title>
+</head>
+<body>
+    <script>
+        const promise1 = new Promise((resolve, reject) => {
+            const acao = true;
+
+            setTimeout(() => {
+                if(acao){
+                    resolve("passou na primeira");
+                }else{
+                    reject("nao passou da primeira");
+                }
+            }, 2000);
+        })
+
+        const promise2 = new Promise((resolve, reject) => {
+            const acao = true;
+
+            setTimeout(() => {
+                if(acao){
+                    resolve("passou na segunda");
+                }else{
+                    reject("nao passou da segunda");
+                }
+            }, 4000);
+        })
+        const promise3 = new Promise((resolve, reject) => {
+            const acao = false;
+
+            setTimeout(() => {
+                if(acao){
+                    resolve("passou na terceira");
+                }else{
+                    reject("nao passou da terceira");
+                }
+            }, 6000);
+        })
+
+        Promise.all([promise1,promise2,promise3])
+        .then((res) => console.log(res))
+        .catch((res) => console.log(res))
+        .finally((res) => console.log("Tudo ok"))
+        
+    </script>
+</body>
+</html>
